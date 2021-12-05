@@ -1,0 +1,14 @@
+{
+  "Handle":          "M", 
+  "Variant Barcode": "T",
+  "Title":           "N", 
+  "Quality":         "X",
+  "Type":            "O",
+  "Variant Inventory Qty": "AH",
+  "Cost per item":   "Z",
+  "Variant Price":   "AA",
+  "Variant Grams":   "AL",
+  "Option1 Value":   "R",
+  "Option2 Value":   "Q",
+  "Gender":          "S"
+}
