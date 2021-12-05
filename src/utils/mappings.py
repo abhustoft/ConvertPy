@@ -4,8 +4,8 @@ from pathlib import Path
 from utils.columnNameToIndex import column_to_number
 import string
 
-def getDNColumns():
-    p = Path(os.getcwd() + "/src/from-supplier/" + "column-map-datanova.json")
+def getDNColumns(path):
+    p = Path(path + "column-map-datanova.json")
 
     with p.open('r+') as file:
         fileString = file.read()          # reads the file in as a long string

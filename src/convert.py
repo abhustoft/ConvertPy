@@ -1,22 +1,25 @@
 import pandas as pd
 import os
+import sys
 from utils.mappings import getDNColumns
-from utils.fileUtils import get_files
+from utils.fileUtils import *
 from utils.columnNameToIndex import column_to_number
 
-DNcolumnsIndexToName = getDNColumns()
-csvFiles, excelFiles = get_files()
-#print(csvFiles)
-#print(excelFiles)
+season = sys.argv[1]
+supplier = sys.argv[2]
 
-#junior = pd.read_excel(os.getcwd() + "/src/from-supplier/" + "junior.xlsx", dtype={'EAN/UPC': str}, usecols=columns)
-#junior = pd.read_excel(os.getcwd() + "/src/from-supplier/" + "junior.xlsx", usecols=columns)
+print("Fetching data from: ", season, " ", supplier)
+path = os.getcwd() + "/../Datanova-import/Suppliers/" + season + "/" + supplier + "/from-supplier/"
+print("Fetching data from path: ", path)
 
-print("  ")
-print("Looper csv fil:")
+
+DNcolumnsIndexToName = getDNColumns(path)
+csvFiles, excelFiles = get_files(path)
+print("Found CSVs: ", csvFiles)
+print("Found excels: ", excelFiles)
 
 for csvFile in csvFiles:
-    csvDF = pd.read_csv(os.getcwd() + "/src/from-supplier/" + csvFile, delimiter=";")
+    csvDF = pd.read_csv(path + csvFile, delimiter=";")
 
     for index in DNcolumnsIndexToName:
         csvDF.rename(columns={csvDF.columns[index]: DNcolumnsIndexToName[index]}, inplace=True)
@@ -34,5 +37,5 @@ for csvFile in csvFiles:
 print('Read csv:')
 print(csvDF.info())
 print(csvDF.head())
-csvDF.to_csv(os.getcwd() + "/src/to_retailer/datanova.csv", encoding='utf-8', index=False)
-# print(excelDF.info())
+
+writeToFile(path, csvDF)
