@@ -1,8 +1,8 @@
 import pandas as pd
 import os
-from mappings import getDNColumns
-from fileUtils import get_files
-from columnNameToIndex import column_to_number
+from utils.mappings import getDNColumns
+from utils.fileUtils import get_files
+from utils.columnNameToIndex import column_to_number
 
 DNcolumnsIndexToName = getDNColumns()
 csvFiles, excelFiles = get_files()
@@ -34,5 +34,5 @@ for csvFile in csvFiles:
 print('Read csv:')
 print(csvDF.info())
 print(csvDF.head())
-csvDF.to_csv("file_name.csv", encoding='utf-8', index=False)
+csvDF.to_csv(os.getcwd() + "/src/to_retailer/datanova.csv", encoding='utf-8', index=False)
 # print(excelDF.info())

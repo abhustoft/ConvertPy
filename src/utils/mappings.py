@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 from pathlib import Path
-from columnNameToIndex import column_to_number
+from utils.columnNameToIndex import column_to_number
 import string
 
 def getDNColumns():
