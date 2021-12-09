@@ -1,32 +1,16 @@
-import pandas as pd
-import os
-from pathlib import Path
 from utils.columnNameToIndex import column_to_number
-import string
+from utils.fileUtils import readJsonFile
 
 
 def reorder_columns(dataframe, col_name, position):
-    """Reorder a dataframe's column.
-    Args:
-        dataframe (pd.DataFrame): dataframe to use
-        col_name (string): column name to move
-        position (0-indexed position): where to relocate column to
-    Returns:
-        pd.DataFrame: re-assigned dataframe
-    """
     temp_col = dataframe[col_name]
     dataframe = dataframe.drop(columns=[col_name])
     dataframe.insert(loc=position, column=col_name, value=temp_col)
     return dataframe
 
-def getDNColumns(path):
-    p = Path(path + "column-map-datanova.json")
 
-    with p.open('r+') as file:
-        fileString = file.read()
-        fileString = '[' + fileString + ']'
-
-    columnsMapping = pd.read_json(fileString)
+def getDNColumnsMapping(path):
+    columnsMapping = readJsonFile(path, "column-map-datanova.json")
 
     # Column letters to index number
     for name, values in columnsMapping.iteritems():
