@@ -43,14 +43,14 @@ def readfiles(path, DNcolumnsNames, DNcolumnsIndices):
                                 header=0, names=DNcolumnsNames, delimiter=",")
             frames.append(csvDF)
         except Exception as e:
-            print("Error in file, not ',' delimiter: ", csvFile)
+            print("File not ',' delimited: ", csvFile)
             print("\t", e)
             try:
                 csvDF = pd.read_csv(path + csvFile, usecols=DNcolumnsIndices,
                                     header=0, names=DNcolumnsNames, delimiter=";")
                 frames.append(csvDF)
             except Exception as e:
-                print("Error in file, note ';' delimiter, either: ", csvFile)
+                print("File not ';' delimited, either: ", csvFile)
                 print("\t", e)
                 continue
             else:
