@@ -11,12 +11,22 @@ def getDNColumns(path):
         fileString = file.read()          # reads the file in as a long string
         fileString = '[' + fileString + ']'  # adds brackets to the start and end of the string
 
-    columnsDF = pd.read_json(fileString)
+    rawMapDF     = pd.read_json(fileString)
 
     # Column letters to index number
-    for name, values in columnsDF.iteritems():
-        columnsDF[name] = column_to_number(values[0])
+    for name, values in rawMapDF.iteritems():
+        rawMapDF[name] = column_to_number(values[0])
 
-    columnsDict = columnsDF.to_dict('records')[0]
+    names        = rawMapDF.columns.to_series()
+    flippedMapDF = rawMapDF.append(names,ignore_index=True)
+    columnNumber   = rawMapDF.iloc[0]
+    flippedMapDF.columns = columnNumber
+    flippedMapDF.drop(index=0, inplace=True)
+
+    print("mod_df2: ")
+    print(flippedMapDF.head())
+    print(" ")
+
+    columnsDict = flippedMapDF.to_dict('records')[0]
     columnsIndexToName = dict((value, key) for key, value in columnsDict.items())
-    return columnsIndexToName
+    return columnsIndexToName, flippedMapDF.columns
