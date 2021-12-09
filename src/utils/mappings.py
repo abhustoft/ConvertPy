@@ -4,29 +4,53 @@ from pathlib import Path
 from utils.columnNameToIndex import column_to_number
 import string
 
+
+def reorder_columns(dataframe, col_name, position):
+    """Reorder a dataframe's column.
+    Args:
+        dataframe (pd.DataFrame): dataframe to use
+        col_name (string): column name to move
+        position (0-indexed position): where to relocate column to
+    Returns:
+        pd.DataFrame: re-assigned dataframe
+    """
+    temp_col = dataframe[col_name]
+    dataframe = dataframe.drop(columns=[col_name])
+    dataframe.insert(loc=position, column=col_name, value=temp_col)
+    return dataframe
+
 def getDNColumns(path):
     p = Path(path + "column-map-datanova.json")
 
     with p.open('r+') as file:
-        fileString = file.read()          # reads the file in as a long string
-        fileString = '[' + fileString + ']'  # adds brackets to the start and end of the string
+        fileString = file.read()
+        fileString = '[' + fileString + ']'
 
-    rawMapDF     = pd.read_json(fileString)
+    columnsMapping = pd.read_json(fileString)
 
     # Column letters to index number
-    for name, values in rawMapDF.iteritems():
-        rawMapDF[name] = column_to_number(values[0])
+    for name, values in columnsMapping.iteritems():
+        columnsMapping[name] = column_to_number(values[0])
 
-    names        = rawMapDF.columns.to_series()
-    flippedMapDF = rawMapDF.append(names,ignore_index=True)
-    columnNumber   = rawMapDF.iloc[0]
-    flippedMapDF.columns = columnNumber
-    flippedMapDF.drop(index=0, inplace=True)
+    # Sort the columns
+    columnIndices = columnsMapping.iloc[0].to_list()
+    sortedIndices = sorted(columnIndices)
 
-    print("mod_df2: ")
-    print(flippedMapDF.head())
-    print(" ")
+    mappingTuples = []
+    tupleIndex = 0
+    # Loop over data columnsMapping
+    for name, values in columnsMapping.iteritems():
+        mappingTuples.append((name, values[0]))
 
-    columnsDict = flippedMapDF.to_dict('records')[0]
-    columnsIndexToName = dict((value, key) for key, value in columnsDict.items())
-    return columnsIndexToName, flippedMapDF.columns
+    def takeSecond(elem):
+        return elem[1]
+
+    mappingTuples.sort(key=takeSecond)
+
+    sortedColumnNames = []
+    sortedColumnIndices = []
+    for aTuple in mappingTuples:
+        sortedColumnNames.append(aTuple[0])
+        sortedColumnIndices.append(aTuple[1])
+
+    return sortedColumnNames, sortedColumnIndices
