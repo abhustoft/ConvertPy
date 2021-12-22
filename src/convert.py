@@ -11,5 +11,5 @@ DNcolumnsNames, DNcolumnsIndices = getDNColumnsMapping(path)
 
 df = readfiles(path, DNcolumnsNames, DNcolumnsIndices)
 df = setDNColumnTypes(df)
-df = addDNColumns(df)
+df = addDNColumns(df, supplier)
 writeToFile(path, df)

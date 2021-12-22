@@ -1,0 +1,1277 @@
+{
+  "Joha": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Joha"
+      ],
+      [
+        "Leverandørnr-",
+        "14"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "14"
+      ],
+      [
+        "Merkenavn",
+        "Joha"
+      ]
+    ]
+  },
+  "NoaNoa": {
+    "firstDataRow": 1,
+    "thousandDivider": "",
+    "decimalDivider": ".",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "NoaNoa"
+      ],
+      [
+        "Leverandørnr-",
+        "6"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ]
+    ]
+  },
+  "MeltonSko": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Melton"
+      ],
+      [
+        "Leverandørnr-",
+        "38"
+      ],
+      [
+        "Varegruppenavn",
+        "Kids"
+      ],
+      [
+        "Varegruppenr-",
+        "2"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "38"
+      ],
+      [
+        "Merkenavn",
+        "Melton"
+      ]
+    ]
+  },
+  "Garcia": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Garcia"
+      ],
+      [
+        "Leverandørnr-",
+        "20"
+      ],
+      [
+        "Varegruppenavn",
+        "Teen"
+      ],
+      [
+        "Varegruppenr-",
+        "2"
+      ],
+      [
+        "Kvalitet",
+        ""
+      ],
+      [
+        "Aldersgruppe",
+        "Ungdom"
+      ],
+      [
+        "MerkeID",
+        "20"
+      ],
+      [
+        "Merkenavn",
+        "Garcia"
+      ]
+    ]
+  },
+  "TommyHilfiger": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "TommyHilfiger"
+      ],
+      [
+        "Leverandørnr-",
+        "19"
+      ],
+      [
+        "Varegruppenavn",
+        "Teen"
+      ],
+      [
+        "Varegruppenr-",
+        "2"
+      ],
+      [
+        "Aldersgruppe",
+        "Ungdom"
+      ],
+      [
+        "MerkeID",
+        "19"
+      ],
+      [
+        "Merkenavn",
+        "TommyHilfiger"
+      ]
+    ]
+  },
+  "Wheat": {
+    "firstDataRow": 1,
+    "thousandDivider": ",",
+    "decimalDivider": ".",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Wheat"
+      ],
+      [
+        "Leverandørnr-",
+        "2"
+      ],
+      [
+        "Kvalitet",
+        ""
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "2"
+      ],
+      [
+        "Merkenavn",
+        "Wheat"
+      ]
+    ]
+  },
+  "Livly": {
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Livly"
+      ],
+      [
+        "Leverandørnr-",
+        "39"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "Kvalitet",
+        ""
+      ],
+      [
+        "Str-kode",
+        ""
+      ]
+    ]
+  },
+  "Levis": {
+    "firstDataRow": 1,
+    "purchasePriceFactor": "1",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Levis"
+      ],
+      [
+        "Varegruppenavn",
+        "Teen"
+      ],
+      [
+        "Varegruppenr-",
+        "2"
+      ],
+      [
+        "Leverandørnr-",
+        "31"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "Kortbeskrivelse",
+        ""
+      ],
+      [
+        "Kvalitet",
+        ""
+      ]
+    ]
+  },
+  "RalphLauren": {
+    "firstDataRow": 1,
+    "purchasePriceFactor": "10",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Ralph Lauren"
+      ],
+      [
+        "Leverandørnr-",
+        "18"
+      ],
+      [
+        "Varegruppenavn",
+        "Teen"
+      ],
+      [
+        "Varegruppenr-",
+        "2"
+      ],
+      [
+        "Aldersgruppe",
+        "Ungdom"
+      ],
+      [
+        "MerkeID",
+        "18"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "Merkenavn",
+        "RalphLauren"
+      ]
+    ]
+  },
+  "RalphLaurenSko": {
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Ralph Lauren"
+      ],
+      [
+        "Leverandørnr-",
+        "18"
+      ]
+    ]
+  },
+  "TheNew": {
+    "firstDataRow": 1,
+    "thousandDivider": ",",
+    "decimalDivider": ".",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "The New"
+      ],
+      [
+        "Leverandørnr-",
+        "40"
+      ],
+      [
+        "Aldersgruppe",
+        "Ungdom"
+      ],
+      [
+        "MerkeID",
+        "40"
+      ],
+      [
+        "Merkenavn",
+        "The New"
+      ]
+    ]
+  },
+  "SmaFolk": {
+    "purchasePriceFactor": "10",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Småfolk"
+      ],
+      [
+        "Leverandørnr-",
+        "9"
+      ]
+    ]
+  },
+  "Lego": {
+    "firstDataRow": 3,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Lego"
+      ],
+      [
+        "Leverandørnr-",
+        "5"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "MerkeID",
+        "5"
+      ],
+      [
+        "Merkenavn",
+        "Lego"
+      ]
+    ]
+  },
+  "Reima": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Reima"
+      ],
+      [
+        "Leverandørnr-",
+        "1"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "1"
+      ],
+      [
+        "Merkenavn",
+        "Reima"
+      ]
+    ]
+  },
+  "Creamie": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Creamie"
+      ],
+      [
+        "Leverandørnr-",
+        "27"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "27"
+      ],
+      [
+        "Merkenavn",
+        "Creamie"
+      ]
+    ]
+  },
+  "DC": {
+    "columns": [
+      [
+        "Leverandørnavn",
+        "DC"
+      ],
+      [
+        "Leverandørnr-",
+        "22"
+      ]
+    ]
+  },
+  "MP": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "MP"
+      ],
+      [
+        "Leverandørnr-",
+        "16"
+      ]
+    ]
+  },
+  "Gullkorn": {
+    "firstDataRow": 4,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Gullkorn"
+      ],
+      [
+        "Leverandørnr-",
+        "32"
+      ],
+      [
+        "Str-kode",
+        ""
+      ],
+      [
+        "Varegruppenr-",
+        "1"
+      ]
+    ]
+  },
+  "Gant": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Gant"
+      ],
+      [
+        "Leverandørnr-",
+        "17"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "Kvalitet",
+        ""
+      ],
+      [
+        "Str-kode",
+        ""
+      ],
+      [
+        "Varegruppenavn",
+        "Teen"
+      ],
+      [
+        "Varegruppenr-",
+        "2"
+      ],
+      [
+        "Aldersgruppe",
+        "Ungdom"
+      ],
+      [
+        "MerkeID",
+        "17"
+      ],
+      [
+        "Merkenavn",
+        "Gant"
+      ]
+    ]
+  },
+  "Lilleba": {
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Lilleba"
+      ],
+      [
+        "Leverandørnr-",
+        "34"
+      ]
+    ]
+  },
+  "Kivat": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Nettoinnkjøpspris",
+        "1"
+      ],
+      [
+        "Leverandørnavn",
+        "Kivat"
+      ],
+      [
+        "Leverandørnr-",
+        "41"
+      ],
+      [
+        "Innkjøpspris",
+        "1"
+      ]
+    ]
+  },
+  "Ebbe": {
+    "firstDataRow": 3,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Ebbe"
+      ],
+      [
+        "Leverandørnr-",
+        "42"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "Kortbeskrivelse",
+        ""
+      ]
+    ]
+  },
+  "Hummel": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Hummel"
+      ],
+      [
+        "Leverandørnr-",
+        "43"
+      ],
+      [
+        "Varegruppenavn",
+        "Teen"
+      ],
+      [
+        "Varegruppenr-",
+        "2"
+      ],
+      [
+        "Aldersgruppe",
+        "Ungdom"
+      ],
+      [
+        "MerkeID",
+        "2"
+      ],
+      [
+        "Merkenavn",
+        "Hummel"
+      ]
+    ]
+  },
+  "HustAndClaire": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Claire"
+      ],
+      [
+        "Leverandørnr-",
+        "8"
+      ],
+      [
+        "MerkeID",
+        "8"
+      ],
+      [
+        "Varegruppenr-",
+        "2"
+      ],
+      [
+        "Merkenavn",
+        "Claire"
+      ]
+    ]
+  },
+  "Quicksilver": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Quicksilver"
+      ],
+      [
+        "Leverandørnr-",
+        "23"
+      ]
+    ]
+  },
+  "Svea": {
+    "firstDataRow": 3,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Svea"
+      ],
+      [
+        "Leverandørnr-",
+        "44"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "Kortbeskrivelse",
+        ""
+      ]
+    ]
+  },
+  "Memini": {
+    "firstDataRow": 2,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Memini"
+      ],
+      [
+        "Leverandørnr-",
+        "7"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "7"
+      ],
+      [
+        "Merkenavn",
+        "Memini"
+      ]
+    ]
+  },
+  "PetitBateau": {
+    "firstDataRow": 1,
+    "purchasePriceFactor": "10",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Petit Bateau"
+      ],
+      [
+        "Leverandørnr-",
+        "45"
+      ],
+      [
+        "Varegruppenavn",
+        "Kids"
+      ],
+      [
+        "Varegruppenr-",
+        "1"
+      ],
+      [
+        "Aldersgruppe",
+        "Ungdom"
+      ],
+      [
+        "MerkeID",
+        "45"
+      ],
+      [
+        "Merkenavn",
+        "Petit Bateau"
+      ]
+    ]
+  },
+  "Petrol": {
+    "firstDataRow": 1,
+    "purchasePriceFactor": "10",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Petrol"
+      ],
+      [
+        "Leverandørnr-",
+        "21"
+      ],
+      [
+        "Langbeskrivelse",
+        ""
+      ],
+      [
+        "Varegruppenavn",
+        "Kids"
+      ],
+      [
+        "Varegruppenr-",
+        "1"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "21"
+      ],
+      [
+        "Merkenavn",
+        "Petrol"
+      ]
+    ]
+  },
+  "Cyrillus": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Cyrillus"
+      ],
+      [
+        "Leverandørnr-",
+        "46"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "46"
+      ],
+      [
+        "Merkenavn",
+        "Cyrillus"
+      ],
+      [
+        "Str-navn",
+        ""
+      ],
+      [
+        "Salgspris",
+        "1"
+      ],
+      [
+        "Innkjøpspris",
+        "1"
+      ]
+    ]
+  },
+  "LyleScott": {
+    "firstDataRow": 1,
+    "purchasePriceFactor": "10",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "LyleScott"
+      ],
+      [
+        "Leverandørnr-",
+        "47"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "47"
+      ],
+      [
+        "Merkenavn",
+        "LyleScott"
+      ]
+    ]
+  },
+  "Kattnakken": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Kattnakken"
+      ],
+      [
+        "Leverandørnr-",
+        "48"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "48"
+      ],
+      [
+        "Merkenavn",
+        "Kattnakken"
+      ]
+    ]
+  },
+  "Maximo": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Maximo"
+      ],
+      [
+        "Leverandørnr-",
+        "36"
+      ],
+      [
+        "MerkeID",
+        "36"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "Merkenavn",
+        "Maximo"
+      ]
+    ]
+  },
+  "Fila": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Fila"
+      ],
+      [
+        "Leverandørnr-",
+        "49"
+      ],
+      [
+        "MerkeID",
+        "49"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "Innkjøpspris",
+        "1"
+      ],
+      [
+        "Merkenavn",
+        "Fila"
+      ]
+    ]
+  },
+  "Cyrillius": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Cyrillius"
+      ],
+      [
+        "Leverandørnr-",
+        "50"
+      ],
+      [
+        "MerkeID",
+        "50"
+      ],
+      [
+        "Innkjøpspris",
+        "1"
+      ],
+      [
+        "Merkenavn",
+        "Cyrillius"
+      ]
+    ]
+  },
+  "Patachou": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Patachou"
+      ],
+      [
+        "Merkenavn",
+        "Patachou"
+      ],
+      [
+        "Leverandørnr-",
+        "51"
+      ],
+      [
+        "MerkeID",
+        "51"
+      ],
+      [
+        "Varenavn",
+        "Patachou"
+      ]
+    ]
+  },
+  "MeToo": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "MeToo"
+      ],
+      [
+        "Merkenavn",
+        "MeToo"
+      ],
+      [
+        "Leverandørnr-",
+        "11"
+      ],
+      [
+        "MerkeID",
+        "11"
+      ]
+    ]
+  },
+  "JackJones": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Jack&Jones"
+      ],
+      [
+        "Merkenavn",
+        "Jack&Jones"
+      ],
+      [
+        "Leverandørnr-",
+        "52"
+      ],
+      [
+        "MerkeID",
+        "52"
+      ]
+    ]
+  },
+  " Parajumpers": {
+    "firstDataRow": 2,
+    "columns": [
+      [
+        "Leverandørnavn",
+        " Parajumpers"
+      ],
+      [
+        "Merkenavn",
+        " Parajumpers"
+      ],
+      [
+        "Leverandørnr-",
+        "53"
+      ],
+      [
+        "MerkeID",
+        "53"
+      ]
+    ]
+  },
+  "Ciesse": {
+    "firstDataRow": 2,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Ciesse"
+      ],
+      [
+        "Merkenavn",
+        "Ciesse"
+      ],
+      [
+        "Leverandørnr-",
+        "54"
+      ],
+      [
+        "MerkeID",
+        "54"
+      ]
+    ]
+  },
+  "Wedoble": {
+    "firstDataRow": 2,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Wedoble"
+      ],
+      [
+        "Merkenavn",
+        "Wedoble"
+      ],
+      [
+        "Leverandørnr-",
+        "55"
+      ],
+      [
+        "MerkeID",
+        "55"
+      ]
+    ]
+  },
+  "Lamborghini": {
+    "firstDataRow": 3,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Lamborghini"
+      ],
+      [
+        "Merkenavn",
+        "Lamborghini"
+      ],
+      [
+        "Leverandørnr-",
+        "56"
+      ],
+      [
+        "MerkeID",
+        "56"
+      ]
+    ]
+  },
+  "Minymo": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Minymo"
+      ],
+      [
+        "Leverandørnr-",
+        "57"
+      ],
+      [
+        "Aldersgruppe",
+        "Barn"
+      ],
+      [
+        "MerkeID",
+        "57"
+      ],
+      [
+        "Merkenavn",
+        "Minymo"
+      ]
+    ]
+  },
+  "Only": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Only"
+      ],
+      [
+        "Merkenavn",
+        "Only"
+      ],
+      [
+        "Leverandørnr-",
+        "53"
+      ],
+      [
+        "MerkeID",
+        "53"
+      ]
+    ]
+  },
+  "MarMar": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "MarMar"
+      ],
+      [
+        "Merkenavn",
+        "MarMar"
+      ],
+      [
+        "Leverandørnr-",
+        "59"
+      ]
+    ]
+  },
+  "Grunt": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Grunt"
+      ],
+      [
+        "Merkenavn",
+        "Grunt"
+      ],
+      [
+        "Leverandørnr-",
+        "60"
+      ]
+    ]
+  },
+  "Juicy": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Juicy"
+      ],
+      [
+        "Merkenavn",
+        "Juicy"
+      ],
+      [
+        "Leverandørnr-",
+        "61"
+      ]
+    ]
+  },
+  "Babidu": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Babidu"
+      ],
+      [
+        "Merkenavn",
+        "Babidu"
+      ],
+      [
+        "Leverandørnr-",
+        "62"
+      ]
+    ]
+  },
+  "NewEra": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "New Era"
+      ],
+      [
+        "Merkenavn",
+        "New Era"
+      ],
+      [
+        "Leverandørnr-",
+        "63"
+      ]
+    ]
+  },
+  "ViljeVe": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "ViljeVe"
+      ],
+      [
+        "Merkenavn",
+        "ViljeVe"
+      ],
+      [
+        "Leverandørnr-",
+        "13"
+      ]
+    ]
+  },
+  "Lillelam": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Lillelam"
+      ],
+      [
+        "Merkenavn",
+        "Lillelam"
+      ],
+      [
+        "Leverandørnr-",
+        "64"
+      ]
+    ]
+  },
+  "Formel": {
+    "firstDataRow": 1,
+    "thousandDivider": ",",
+    "decimalDivider": ".",
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Formel"
+      ],
+      [
+        "Merkenavn",
+        "Formel"
+      ],
+      [
+        "Leverandørnr-",
+        "65"
+      ]
+    ]
+  },
+  "FleischerCouture": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "Fleischer Couture"
+      ],
+      [
+        "Merkenavn",
+        "Fleicher Couture"
+      ],
+      [
+        "Leverandørnr-",
+        "66"
+      ]
+    ]
+  },
+  "GoBabyGo": {
+    "firstDataRow": 1,
+    "columns": [
+      [
+        "Leverandørnavn",
+        "GoBabyGo"
+      ],
+      [
+        "Merkenavn",
+        "GoBabyGo"
+      ],
+      [
+        "Leverandørnr-",
+        "67"
+      ]
+    ]
+  }
+}
