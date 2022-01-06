@@ -1,4 +1,5 @@
 from utils.fileUtils import readJsonFile
+from utils.fileUtils import getDNColumnsAndPresets
 import pandas as pd
 import os
 import numpy as np
@@ -17,38 +18,49 @@ def setDNColumnTypes(df):
 
     return df
 
-
-def addDNColumns(fileData):
-    allDNColumns = readJsonFile(
-        os.getcwd() + "/src/import-templates/", "importTemplate-datanova.json")
-
-    columnPresetsStandard = readJsonFile(
-        os.getcwd() + "/src/import-templates/", "standard-setup-datanova.json")
-
-    columnPresetsSuppliers = readJsonFile(
-        os.getcwd() + "/src/import-templates/", "suppliers-setup-datanova.json")
-
-    noOfRows = len(fileData.index)
-
-    allDNColumns.loc[0] = " " # Blank out 'A', 'B', 'C' etc. column positions
-    emptyRow = allDNColumns.loc[[0]]
+def fillWithEmptyRows(df, noOfRows):
+    df.loc[0] = " " # Blank out 'A', 'B', 'C' etc. column positions
+    emptyRow = df.loc[[0]]
 
     for i in range(noOfRows-1):
-        allDNColumns = pd.concat([allDNColumns,emptyRow]) 
+        df = pd.concat([df,emptyRow]) 
 
-    allDNColumns.reset_index(inplace=True)
+    df.reset_index(inplace=True)
+    return df
 
+def setStandardPresets(allDNColumns, columnPresetsStandard):
+    for column in columnPresetsStandard:
+        allDNColumns[column] = columnPresetsStandard[column].values[0]
+    return allDNColumns
+
+def setSupplierPresets(allDNColumns, columnPresetsSuppliers, supplier):
+    presetsDict = columnPresetsSuppliers[supplier].array[0]
+    columns = presetsDict['columns']
+    columnsDict = dict(columns)
+    # del presetsDict['columns']
+    # presets = {**presetsDict, **columnsDict}
+    # What to do with firstDataRow and friends?
+
+    for column in columnsDict:
+        allDNColumns[column] = columnsDict[column]
+
+    return allDNColumns
+
+def addDNColumns(fileData):
+    allDNColumns, columnPresetsStandard, columnPresetsSuppliers = getDNColumnsAndPresets()
+    allDNColumns = fillWithEmptyRows(allDNColumns, len(fileData.index))
+
+    # Fill columns with data from file
     for column in fileData.columns:
-        fileVals = fileData[column].values
-        if column == 'Handle':
-            column = 'Lev-varenr-'
-
-        if column in allDNColumns.columns:
-            to = allDNColumns.loc[:,column]
-            allDNColumns.loc[:, column] = fileVals
+        values = fileData[column].values
+        column = 'Lev-varenr-' if column == 'Handle' else column
+        allDNColumns[column] = values
         
-    # ff = allDNColumns.loc[[0,1,2], ['eanplu', 'Salgspris', 'Fargenavn', 'Antall']]
-    # print(ff.head)
+    allDNColumns = setStandardPresets(allDNColumns, columnPresetsStandard)
+    allDNColumns = setSupplierPresets(allDNColumns, columnPresetsSuppliers, "HustAndClaire")
+
+    ff = allDNColumns.loc[[0,1,2], ['MVA%','eanplu', 'Leverandørnr-', 'Fargenavn', 'Antall']]
+    print(ff.head)
 
     allDNColumns.drop(columns=['index'], inplace=True)
     return allDNColumns

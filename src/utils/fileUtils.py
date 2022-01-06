@@ -68,3 +68,15 @@ def readfiles(path, DNcolumns):
     df.reset_index(inplace=True)
     df.drop(columns=['index'], inplace=True)
     return df
+
+def getDNColumnsAndPresets ():
+    allDNColumns = readJsonFile(
+        os.getcwd() + "/src/import-templates/", "importTemplate-datanova.json")
+
+    columnPresetsStandard = readJsonFile(
+        os.getcwd() + "/src/import-templates/", "standard-setup-datanova.json")
+
+    columnPresetsSuppliers = readJsonFile(
+        os.getcwd() + "/src/import-templates/", "suppliers-setup-datanova.json")
+
+    return allDNColumns, columnPresetsStandard, columnPresetsSuppliers
