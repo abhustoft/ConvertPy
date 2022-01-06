@@ -1,22 +1,24 @@
 from utils.fileUtils import readJsonFile
+import pandas as pd
 import os
+import numpy as np
 
 
 def setDNColumnTypes(df):
     df['Antall'].fillna(0, inplace=True)
-    df['Antall'] = df['Antall'].astype('int16')
+    df['Antall'] = df['Antall'].astype('string')
     df['Handle'] = df['Handle'].astype('string')
     df['Fargenavn'] = df['Fargenavn'].astype('string')
     df['Varenavn'] = df['Varenavn'].astype('string')
     df['Str-navn'] = df['Str-navn'].astype('string')
     df['eanplu'] = df['eanplu'].astype('string')
-    df['Innkjøpspris'] = df['Innkjøpspris'].astype('float')
-    df['Salgspris'] = df['Salgspris'].astype('float')
+    df['Innkjøpspris'] = df['Innkjøpspris'].astype('string')
+    df['Salgspris'] = df['Salgspris'].astype('string')
 
     return df
 
 
-def addDNColumns(df, supplier):
+def addDNColumns(fileData, supplier):
     allDNColumns = readJsonFile(
         os.getcwd() + "/src/import-templates/", "importTemplate-datanova.json")
 
@@ -26,34 +28,40 @@ def addDNColumns(df, supplier):
     columnPresetsSuppliers = readJsonFile(
         os.getcwd() + "/src/import-templates/", "suppliers-setup-datanova.json")
 
-    # print(columnPresetsStandard.info())
-    # print(columnPresetsSuppliers.info())
+    noOfRows = len(fileData.index)
 
-    rows = len(df.index)
+    print(allDNColumns.loc[[0], ['eanplu', 'Merkenavn', 'Aldersgruppe']])
+    
+    allDNColumns.loc[0] = " "
+    emptyRow = allDNColumns.loc[[0]]
+    print(allDNColumns.loc[[0], ['eanplu', 'Merkenavn', 'Aldersgruppe']])
 
-    for column in allDNColumns.columns.tolist():
-        if column in columnPresetsStandard.columns:
-            onlist = columnPresetsStandard[column][0]
-            df[column] = onlist * rows
-        elif column not in df.columns:
-            df[column] = [" "] * rows
+    for i in range(noOfRows-1):
+        allDNColumns = pd.concat([allDNColumns,emptyRow]) 
 
-        if supplier in columnPresetsSuppliers.columns:
-            firstRow            = columnPresetsSuppliers[supplier].tolist()[0]["firstDataRow"]        if "firstDataRow"        in columnPresetsSuppliers[supplier].tolist()[0] else 1
-            thousandDivider     = columnPresetsSuppliers[supplier].tolist()[0]["thousandDivider"]     if "thousandDivider"     in columnPresetsSuppliers[supplier].tolist()[0] else ''
-            decimalDivider      = columnPresetsSuppliers[supplier].tolist()[0]["decimalDivider"]      if "decimalDivider"      in columnPresetsSuppliers[supplier].tolist()[0] else ''
-            purchasePriceFactor = columnPresetsSuppliers[supplier].tolist()[0]["purchasePriceFactor"] if "purchasePriceFactor" in columnPresetsSuppliers[supplier].tolist()[0] else 1
-            coldict             = columnPresetsSuppliers[supplier].tolist()[0]["columns"]
-            
-            print("\n",supplier)
-            print(column)
-            print("firstRow", firstRow)
-            print("thousandDivider", thousandDivider)
-            print("decimalDivider", decimalDivider)
-            print("purchasePriceFactor", purchasePriceFactor)
-            print(coldict)
+    allDNColumns.reset_index(inplace=True)
 
+    print(allDNColumns.loc[[0,1,2], ['eanplu', 'Merkenavn', 'Aldersgruppe']])
+    print(fileData.columns)
+    print(allDNColumns.columns)
 
-    df = df.loc[:, allDNColumns.columns.tolist()]
+    for column in fileData.columns:
+        fileVals = fileData[column].values
+        if column == 'Handle':
+            column = 'Lev-varenr-'
 
-    return df
+        print(type(fileVals), fileVals[0], fileVals[1])
+
+        if column in allDNColumns.columns:
+            to = allDNColumns.loc[:,column]
+            allDNColumns.loc[:, column] = fileVals
+        
+        print(allDNColumns.loc[[0,1,2], ['eanplu', 'Merkenavn', 'Aldersgruppe']])
+
+    
+    ff = allDNColumns.loc[[0,1,2], ['eanplu', 'Salgspris', 'Fargenavn', 'Antall']]
+
+    allDNColumns.drop(columns=['index'], inplace=True)
+    print(ff.head)
+
+    return allDNColumns

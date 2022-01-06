@@ -1,6 +1,6 @@
 import string
 
-def column_to_number(c):
+def alpha_to_index(c):
     """Return number corresponding to excel-style column."""
     number=-25
     for l in c:

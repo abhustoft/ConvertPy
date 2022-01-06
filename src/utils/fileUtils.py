@@ -31,23 +31,26 @@ def writeToFile(path, df):
     df.to_csv(file, encoding='utf-8', index=False)
 
 
-def readfiles(path, DNcolumnsNames, DNcolumnsIndices):
+def readfiles(path, DNcolumns):
     csvFiles, excelFiles = get_files(path)
     print("Found CSVs: ", csvFiles)
     print("Found excels: ", excelFiles)
+    print(DNcolumns.index)
+    print(DNcolumns.values)
+    #DNColumnsIndices = DNcolumns)
 
     frames = []
     for fileNo, csvFile in enumerate(csvFiles):
         try:
-            csvDF = pd.read_csv(path + csvFile, usecols=DNcolumnsIndices,
-                                header=0, names=DNcolumnsNames, delimiter=",")
+            csvDF = pd.read_csv(path + csvFile, usecols=DNcolumns.values,
+                                header=0, names=DNcolumns.index, delimiter=",")
             frames.append(csvDF)
         except Exception as e:
-            print("File not ',' delimited: ", csvFile)
+            print("File not ',' delimited: ", csvFile, " Try ';' delimter:")
             print("\t", e)
             try:
-                csvDF = pd.read_csv(path + csvFile, usecols=DNcolumnsIndices,
-                                    header=0, names=DNcolumnsNames, delimiter=";")
+                csvDF = pd.read_csv(path + csvFile, usecols=DNcolumns.values,
+                                    header=0, names=DNcolumns.index, delimiter=";")
                 frames.append(csvDF)
             except Exception as e:
                 print("File not ';' delimited, either: ", csvFile)

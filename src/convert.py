@@ -1,15 +1,16 @@
 import sys
 from utils.cleaners import addDNColumns, setDNColumnTypes
-
 from utils.mappings import getDNColumnsMapping
 from utils.fileUtils import *
-from utils.columnNameToIndex import column_to_number
+from utils.columnNameToIndex import alpha_to_index
 
 season, supplier = sys.argv[1:] if len(sys.argv) == 3 else ('2021FW', "Juicy")
 path = filePath(season, supplier)
-DNcolumnsNames, DNcolumnsIndices = getDNColumnsMapping(path)
+DNcolumns = getDNColumnsMapping(path)
 
-df = readfiles(path, DNcolumnsNames, DNcolumnsIndices)
-df = setDNColumnTypes(df)
-df = addDNColumns(df, supplier)
-writeToFile(path, df)
+print(DNcolumns)
+
+fileData = readfiles(path, DNcolumns)
+fileData = setDNColumnTypes(fileData)
+fullData = addDNColumns(fileData, supplier)
+writeToFile(path, fullData)
