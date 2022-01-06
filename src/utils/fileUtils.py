@@ -35,9 +35,6 @@ def readfiles(path, DNcolumns):
     csvFiles, excelFiles = get_files(path)
     print("Found CSVs: ", csvFiles)
     print("Found excels: ", excelFiles)
-    print(DNcolumns.index)
-    print(DNcolumns.values)
-    #DNColumnsIndices = DNcolumns)
 
     frames = []
     for fileNo, csvFile in enumerate(csvFiles):

@@ -18,7 +18,7 @@ def setDNColumnTypes(df):
     return df
 
 
-def addDNColumns(fileData, supplier):
+def addDNColumns(fileData):
     allDNColumns = readJsonFile(
         os.getcwd() + "/src/import-templates/", "importTemplate-datanova.json")
 
@@ -30,38 +30,25 @@ def addDNColumns(fileData, supplier):
 
     noOfRows = len(fileData.index)
 
-    print(allDNColumns.loc[[0], ['eanplu', 'Merkenavn', 'Aldersgruppe']])
-    
-    allDNColumns.loc[0] = " "
+    allDNColumns.loc[0] = " " # Blank out 'A', 'B', 'C' etc. column positions
     emptyRow = allDNColumns.loc[[0]]
-    print(allDNColumns.loc[[0], ['eanplu', 'Merkenavn', 'Aldersgruppe']])
 
     for i in range(noOfRows-1):
         allDNColumns = pd.concat([allDNColumns,emptyRow]) 
 
     allDNColumns.reset_index(inplace=True)
 
-    print(allDNColumns.loc[[0,1,2], ['eanplu', 'Merkenavn', 'Aldersgruppe']])
-    print(fileData.columns)
-    print(allDNColumns.columns)
-
     for column in fileData.columns:
         fileVals = fileData[column].values
         if column == 'Handle':
             column = 'Lev-varenr-'
 
-        print(type(fileVals), fileVals[0], fileVals[1])
-
         if column in allDNColumns.columns:
             to = allDNColumns.loc[:,column]
             allDNColumns.loc[:, column] = fileVals
         
-        print(allDNColumns.loc[[0,1,2], ['eanplu', 'Merkenavn', 'Aldersgruppe']])
-
-    
-    ff = allDNColumns.loc[[0,1,2], ['eanplu', 'Salgspris', 'Fargenavn', 'Antall']]
+    # ff = allDNColumns.loc[[0,1,2], ['eanplu', 'Salgspris', 'Fargenavn', 'Antall']]
+    # print(ff.head)
 
     allDNColumns.drop(columns=['index'], inplace=True)
-    print(ff.head)
-
     return allDNColumns

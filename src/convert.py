@@ -8,9 +8,7 @@ season, supplier = sys.argv[1:] if len(sys.argv) == 3 else ('2021FW', "Juicy")
 path = filePath(season, supplier)
 DNcolumns = getDNColumnsMapping(path)
 
-print(DNcolumns)
-
 fileData = readfiles(path, DNcolumns)
 fileData = setDNColumnTypes(fileData)
-fullData = addDNColumns(fileData, supplier)
+fullData = addDNColumns(fileData)
 writeToFile(path, fullData)
