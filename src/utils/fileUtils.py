@@ -32,6 +32,7 @@ def writeToFile(path, df):
 
 
 def readfiles(path, DNcolumns):
+    print("\n")
     csvFiles, excelFiles = get_files(path)
     print("Found CSVs: ", csvFiles)
     print("Found excels: ", excelFiles)
@@ -43,22 +44,22 @@ def readfiles(path, DNcolumns):
                                 header=0, names=DNcolumns.index, delimiter=",")
             frames.append(csvDF)
         except Exception as e:
-            print("File not ',' delimited: ", csvFile, " Try ';' delimter:")
+            print("\nFile not ',' delimited: ", csvFile, " Try ';' delimter:")
             print("\t", e)
             try:
                 csvDF = pd.read_csv(path + csvFile, usecols=DNcolumns.values,
                                     header=0, names=DNcolumns.index, delimiter=";")
                 frames.append(csvDF)
             except Exception as e:
-                print("File not ';' delimited, either: ", csvFile)
+                print("\nFile not ';' delimited, either: ", csvFile)
                 print("\t", e)
                 continue
             else:
-                print("Successfully read file", csvFile, "with ';' delimiter")
+                print("Successfully read file", csvFile, "with ';' delimiter\n")
             finally:
                 continue
         else:
-            print("Successfully read file: ", csvFile, " with ',' delimiter")
+            print("Successfully read file: ", csvFile, " with ',' delimiter\n")
     
     if not frames:
         print("No files found")
@@ -67,6 +68,7 @@ def readfiles(path, DNcolumns):
     df = pd.concat(frames)
     df.reset_index(inplace=True)
     df.drop(columns=['index'], inplace=True)
+
     return df
 
 def getDNColumnsAndPresets ():

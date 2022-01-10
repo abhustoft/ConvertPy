@@ -34,33 +34,32 @@ def setStandardPresets(allDNColumns, columnPresetsStandard):
     return allDNColumns
 
 def setSupplierPresets(allDNColumns, columnPresetsSuppliers, supplier):
-    presetsDict = columnPresetsSuppliers[supplier].array[0]
-    columns = presetsDict['columns']
-    columnsDict = dict(columns)
+    supplierPresetsDict = columnPresetsSuppliers[supplier].array[0]
+    columns = supplierPresetsDict['columns']
+    supplierColumnsDict = dict(columns)
+    
     # del presetsDict['columns']
     # presets = {**presetsDict, **columnsDict}
     # What to do with firstDataRow and friends?
 
-    for column in columnsDict:
-        allDNColumns[column] = columnsDict[column]
+    for column in supplierColumnsDict:
+        allDNColumns[column] = supplierColumnsDict[column]
 
     return allDNColumns
 
-def addDNColumns(fileData):
-    allDNColumns, columnPresetsStandard, columnPresetsSuppliers = getDNColumnsAndPresets()
-    allDNColumns = fillWithEmptyRows(allDNColumns, len(fileData.index))
+def fillFileData(allDNColumns, fileData, season):
 
-    # Fill columns with data from file
     for column in fileData.columns:
-        values = fileData[column].values
-        column = 'Lev-varenr-' if column == 'Handle' else column
-        allDNColumns[column] = values
-        
-    allDNColumns = setStandardPresets(allDNColumns, columnPresetsStandard)
-    allDNColumns = setSupplierPresets(allDNColumns, columnPresetsSuppliers, "HustAndClaire")
+        renamedColumn = 'Lev-varenr-' if column == 'Handle' else column
 
-    ff = allDNColumns.loc[[0,1,2], ['MVA%','eanplu', 'Leverandørnr-', 'Fargenavn', 'Antall']]
-    print(ff.head)
+        handles = fileData[column].values
 
-    allDNColumns.drop(columns=['index'], inplace=True)
+        print("column:", fileData[column])
+
+        allDNColumns[renamedColumn] = fileData[column].values
+    
     return allDNColumns
+    
+
+
+
