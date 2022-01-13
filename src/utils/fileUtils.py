@@ -2,6 +2,7 @@ import sys
 import os
 from pathlib import Path
 import pandas as pd
+from pandas.core.series import Series
 
 def readJsonFile (path, fileName):
     p = Path(path + fileName)
@@ -31,28 +32,34 @@ def writeToFile(path, df):
     df.to_csv(file, encoding='utf-8', index=False)
 
 
-def readfiles(path, DNcolumns):
+def readfiles(path, columns):
     print("\n")
     csvFiles, excelFiles = get_files(path)
     print("Found CSVs: ", csvFiles)
     print("Found excels: ", excelFiles)
+    cleanedColumns = Series(dict(columns)) #Remove dups ? Need to flip, then flip back
+    print("\nOriginal column list:\n", columns)
+    print("\nnames:\n", columns.index)
+    print("\nvalues:\n", columns.values)
+    print("\nCleaned column names:\n", cleanedColumns.index)
+    print("\nCleaned column values:\n", cleanedColumns.values)
 
     frames = []
     for fileNo, csvFile in enumerate(csvFiles):
         try:
-            csvDF = pd.read_csv(path + csvFile, usecols=DNcolumns.values,
-                                header=0, names=DNcolumns.index, delimiter=",")
+            csvDF = pd.read_csv(path + csvFile, usecols=columns.values,
+                                header=0, names=columns.index, delimiter=",")
             frames.append(csvDF)
         except Exception as e:
             print("\nFile not ',' delimited: ", csvFile, " Try ';' delimter:")
-            print("\t", e)
+            print("\tException:", e)
             try:
-                csvDF = pd.read_csv(path + csvFile, usecols=DNcolumns.values,
-                                    header=0, names=DNcolumns.index, delimiter=";")
+                csvDF = pd.read_csv(path + csvFile, usecols=columns.values,
+                                    header=0, names=columns.index, delimiter=";")
                 frames.append(csvDF)
             except Exception as e:
                 print("\nFile not ';' delimited, either: ", csvFile)
-                print("\t", e)
+                print("\tException:", e)
                 continue
             else:
                 print("Successfully read file", csvFile, "with ';' delimiter\n")
