@@ -21,7 +21,7 @@ allDNColumns = setStandardPresets(allDNColumns, columnPresetsStandard)
 allDNColumns = setSupplierPresets(allDNColumns, columnPresetsSuppliers, supplier)
 allDNColumns = fillFileData(allDNColumns, fileData, season)
     
-ff = allDNColumns.loc[[0,1,2], ['MVA%','eanplu', 'Leverandørnr-', 'Fargenavn', 'Antall']]
+ff = allDNColumns.loc[[0,1,2], ['Lev-varenr-','eanplu', 'Leverandørnr-', 'Fargenavn', 'Antall']]
 print(ff.head)
 
 allDNColumns.drop(columns=['index'], inplace=True)

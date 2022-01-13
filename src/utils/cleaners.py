@@ -2,7 +2,9 @@ from utils.fileUtils import readJsonFile
 from utils.fileUtils import getDNColumnsAndPresets
 import pandas as pd
 import os
+import re
 import numpy as np
+import hashlib
 
 
 def setDNColumnTypes(df):
@@ -48,15 +50,21 @@ def setSupplierPresets(allDNColumns, columnPresetsSuppliers, supplier):
     return allDNColumns
 
 def fillFileData(allDNColumns, fileData, season):
+    for columnName in fileData.columns:
+        shortSeason = season.replace('20', '') + "&"
 
-    for column in fileData.columns:
-        renamedColumn = 'Lev-varenr-' if column == 'Handle' else column
+        if (columnName == 'Handle'):
+            handles = fileData[columnName].values
+            colors = fileData['Fargenavn'].values
+            for i, val in enumerate(handles):
+                size = fileData['Str-navn'].values[i].strip()
+                color = fileData['Fargenavn'].values[i].strip()
+                hash = hashlib.md5(color.encode('utf-8')).hexdigest()[:8]
+                colors[i] = hash
+                handles[i] = shortSeason + size + "@" + re.sub(r'\s+', '',  val) + "-" + hash
 
-        handles = fileData[column].values
-
-        print("column:", fileData[column])
-
-        allDNColumns[renamedColumn] = fileData[column].values
+        renamedColumn = 'Lev-varenr-' if columnName == 'Handle' else columnName
+        allDNColumns[renamedColumn] = fileData[columnName].values
     
     return allDNColumns
     
