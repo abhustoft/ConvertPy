@@ -7,12 +7,7 @@ def reorder_columns(dataframe, col_name, position):
     dataframe.insert(loc=position, column=col_name, value=temp_col)
     return dataframe
 
-def getDNColumnsMapping(path):
-    columnsMapAlphaNumeric = readJsonFile(path, "column-map-datanova.json")
-    columnsMapIndices = columnsMapAlphaNumeric.apply(alpha_to_index)
-    return columnsMapIndices.sort_values()
-
-def getShopifyColumnsMapping(path):
-    columnsMapAlphaNumeric = readJsonFile(path, "column-map-shopify.json")
+def getColumnsMapping(path, file):
+    columnsMapAlphaNumeric = readJsonFile(path, file)
     columnsMapIndices = columnsMapAlphaNumeric.apply(alpha_to_index)
     return columnsMapIndices.sort_values()

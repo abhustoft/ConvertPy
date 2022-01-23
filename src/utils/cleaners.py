@@ -7,17 +7,9 @@ import numpy as np
 import hashlib
 
 
-def setDNColumnTypes(df):
-    df['Antall'].fillna(0, inplace=True)
-    df['Antall'] = df['Antall'].astype('string')
-    df['Handle'] = df['Handle'].astype('string')
-    df['Fargenavn'] = df['Fargenavn'].astype('string')
-    df['Varenavn'] = df['Varenavn'].astype('string')
-    df['Str-navn'] = df['Str-navn'].astype('string')
-    df['eanplu'] = df['eanplu'].astype('string')
-    df['Innkjøpspris'] = df['Innkjøpspris'].astype('string')
-    df['Salgspris'] = df['Salgspris'].astype('string')
-
+def setColumnTypes(df):
+    for column in df:
+        df[column] = df[column].astype('string')
     return df
 
 def fillWithEmptyRows(df, noOfRows):

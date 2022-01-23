@@ -31,18 +31,40 @@ def writeToFile(path, df):
     os.remove(file) if os.path.exists(file) else None
     df.to_csv(file, encoding='utf-8', index=False)
 
+def findDuplicateColumnPresets(columns):
+    columnHeadings = columns.index.tolist()
+    columnAlphaNames = columns.values.tolist()
+
+    print("Find dups in:")
+    print(columnHeadings)
+    print(columnAlphaNames)
+
+    dups = dict()
+    for i, val in enumerate(columnAlphaNames):
+        if (val == columnAlphaNames[i-1]):
+            dups[columnHeadings[i-1]] = columnHeadings[i]
+
+    print("Found dups:", dups)
+    return dups
+
+def removeDuplicates(columns, duplicateColumnNames):
+    for columnName, alphaValue in columns.copy().items():
+        if (columnName in duplicateColumnNames):
+            columns.drop(duplicateColumnNames[columnName], inplace=True)
+    return columns
 
 def readfiles(path, columns):
     print("\n")
     csvFiles, excelFiles = get_files(path)
     print("Found CSVs: ", csvFiles)
     print("Found excels: ", excelFiles)
-    cleanedColumns = Series(dict(columns)) #Remove dups ? Need to flip, then flip back
-    print("\nOriginal column list:\n", columns)
-    print("\nnames:\n", columns.index)
-    print("\nvalues:\n", columns.values)
-    print("\nCleaned column names:\n", cleanedColumns.index)
-    print("\nCleaned column values:\n", cleanedColumns.values)
+    print("\n")
+
+    sortedColumns = columns.sort_values()
+    duplicateColumnNames = findDuplicateColumnPresets(sortedColumns)
+    columns = removeDuplicates(columns, duplicateColumnNames)
+
+    print(columns)
 
     frames = []
     for fileNo, csvFile in enumerate(csvFiles):
@@ -76,6 +98,14 @@ def readfiles(path, columns):
     df.reset_index(inplace=True)
     df.drop(columns=['index'], inplace=True)
 
+    if (len(duplicateColumnNames) > 0):
+        for columnName in duplicateColumnNames:
+            pos = df.columns.get_loc(columnName)
+            df.insert(pos+1, duplicateColumnNames[columnName], df[columnName])
+
+    print("Read data:")
+    print(df.head())
+
     return df
 
 def getDNColumnsAndPresets ():
@@ -87,5 +117,18 @@ def getDNColumnsAndPresets ():
 
     columnPresetsSuppliers = readJsonFile(
         os.getcwd() + "/src/import-templates/", "suppliers-setup-datanova.json")
+
+    return allDNColumns, columnPresetsStandard, columnPresetsSuppliers
+
+
+def getColumnsAndPresets (target):
+    allDNColumns = readJsonFile(
+        os.getcwd() + "/src/import-templates/", "importTemplate-" + target + ".json")
+
+    columnPresetsStandard = readJsonFile(
+        os.getcwd() + "/src/import-templates/", "standard-setup-" + target + ".json")
+
+    columnPresetsSuppliers = readJsonFile(
+        os.getcwd() + "/src/import-templates/", "suppliers-setup-shopify.json")
 
     return allDNColumns, columnPresetsStandard, columnPresetsSuppliers
